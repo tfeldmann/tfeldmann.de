@@ -81,8 +81,8 @@ Open-Source:
   (Arduino, Python, Qt, OpenCV)
 </pre>
   <script>
-    function show_github_stars() {
-      var stardivs = document.getElementsByClassName("gh-stars");
+    function show_github_stars(cls) {
+      var stardivs = document.getElementsByClassName(cls);
       for (var i = 0; i < stardivs.length; i++) {
         let x = stardivs.item(i);
         fetch('https://api.github.com/repos/' + x.dataset.repo)
@@ -102,7 +102,7 @@ Open-Source:
       }
     }
 
-    show_github_stars();
+    show_github_stars("gh-stars");
   </script>
 </body>
 
