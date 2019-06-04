@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Thomas Feldmann | tfeldmann.de</title>
@@ -46,8 +47,8 @@
 </head>
 
 <body>
-<center><img src="tf.svg" width="128"></center>
-<pre>
+  <center><img src="tf.svg" width="128"></center>
+  <pre>
 <div style="border-bottom:1px solid black;"><b>Thomas Feldmann</b> <<a href="mailto:mail@tfeldmann.de">mail@tfeldmann.de</a>></div>
 Entwicklungsingenieur (M.Eng.)
 
@@ -56,29 +57,47 @@ Open-Source:
 
   <a href="https://github.com/tfeldmann/organize" target="_blank">organize</a> <span class="gh-stars" data-repo="tfeldmann/organize" hidden></span>
   <i>The file management automation tool</i>
-  Bringt Ordnung in das Datei-Chaos.
-<!--
+  Bringt Ordnung in das Datei-Chaos. Überwacht Ordner und führt selbst
+  definierte Regeln aus.
+  (Python)
+
   <a href="https://github.com/tfeldmann/sudoku" target="_blank">Sudoku-CV</a> <span class="gh-stars" data-repo="tfeldmann/sudoku" hidden></span>
   <i>Use your webcam to detect and solve any 9x9 sudoku</i>
-  Bringt Ordnung in das Datei-Chaos. Sortiert automatisch Dateien nach
-  Regeln.
+  Erkennt Sudokus über die Webcam und zeigt deren Lösung an.
+  (Python, OpenCV, Tesseract)
+
+  <a href="https://github.com/tfeldmann/python-raumfeld" target="_blank">Sudoku-CV</a> <span class="gh-stars" data-repo="tfeldmann/python-raumfeld" hidden></span>
+  <i>A pythonic library for discovering and controlling Teufel Raumfeld
+  devices.</i>
+  Eine Python-Library zur Steuerung vernetzter Teufel Raumfeld
+  Lautsprecher.
+  (Python, DLNA/UPnP, SOAP)
 
   <a href="https://github.com/tfeldmann/Biorobotic-Arm" target="_blank">Biorobotic-Arm</a> <span class="gh-stars" data-repo="tfeldmann/Biorobotic-Arm" hidden></span>
   <i>An Arduino controlled robotic arm with facetracking capabilities</i>
--->
+  Studienprojekt: Ein gesteuerter Roboterarm aus günstigen Komponenten.
+  Kann per Smartphone oder aus einer Qt-Software heraus gesteuert werden
+  und automatisch Gesichtern folgen.
+  (Arduino, Python, Qt, OpenCV)
 </pre>
   <script>
     function show_github_stars() {
       var stardivs = document.getElementsByClassName("gh-stars");
       for (var i = 0; i < stardivs.length; i++) {
-        var x = stardivs.item(i);
+        let x = stardivs.item(i);
         fetch('https://api.github.com/repos/' + x.dataset.repo)
-          .then((resp) => resp.json())  // transform to json
+          .then(function (response) {
+            if (!response.ok)
+              throw Error(response.statusText);
+            return response.json() // transform to json
+          })
           .then(function (data) {
+            console.log(data);
             x.innerHTML = '(' + data.stargazers_count + ' ☆)';
             x.style.display = 'inline';
-          }).catch(function (ex) {
-            console.log('parsing failed', ex);
+          })
+          .catch(function (ex) {
+            console.log('github star loading failed', ex);
           })
       }
     }
