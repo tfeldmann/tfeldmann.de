@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Thomas Feldmann | tfeldmann.de</title>
+  <style type="text/css">
+    a:link {
+      color: #CE2029;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #CE2029;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    pre {
+      padding-top: 50px;
+      font: 11.0px;
+      width: 585px;
+      position: relative;
+      margin: 0 auto;
+      white-space: -moz-pre-wrap;
+      /* Mozilla, supported since 1999 */
+      white-space: -pre-wrap;
+      /* Opera */
+      white-space: -o-pre-wrap;
+      /* Opera */
+      white-space: pre-wrap;
+      /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+      word-wrap: break-word;
+      /* IE 5.5+ */
+    }
+  </style>
+</head>
+
+<body>
+  <pre>
+<div style="border-bottom:1px solid black;"><b>Thomas Feldmann</b> <<a href="mailto:mail@tfeldmann.de">mail@tfeldmann.de</a>></div>
+Entwicklungsingenieur (M.Eng.)
+
+
+Open-Source:
+
+  <a href="https://github.com/tfeldmann/organize" target="_blank">organize</a> <span class="gh-stars" data-repo="tfeldmann/organize" hidden></span>
+  <i>The file management automation tool</i>
+  Bringt Ordnung in das Datei-Chaos.
+<!--
+  <a href="https://github.com/tfeldmann/sudoku" target="_blank">Sudoku-CV</a> <span class="gh-stars" data-repo="tfeldmann/sudoku" hidden></span>
+  <i>Use your webcam to detect and solve any 9x9 sudoku</i>
+  Bringt Ordnung in das Datei-Chaos. Sortiert automatisch Dateien nach
+  Regeln.
+
+  <a href="https://github.com/tfeldmann/Biorobotic-Arm" target="_blank">Biorobotic-Arm</a> <span class="gh-stars" data-repo="tfeldmann/Biorobotic-Arm" hidden></span>
+  <i>An Arduino controlled robotic arm with facetracking capabilities</i>
+-->
+  </pre>
+  <script>
+    function show_github_stars() {
+      var stardivs = document.getElementsByClassName("gh-stars");
+      for (var i = 0; i < stardivs.length; i++) {
+        let x = stardivs.item(i);
+        fetch('https://api.github.com/repos/' + x.dataset.repo)
+          .then((resp) => resp.json())  // transform to json
+          .then(function (data) {
+            x.innerHTML = '(' + data.stargazers_count + ' ☆)';
+            x.style.display = 'inline';
+          }).catch(function (ex) {
+            console.log('parsing failed', ex);
+          })
+      }
+    }
+
+    show_github_stars();
+  </script>
+</body>
+
+</html>
