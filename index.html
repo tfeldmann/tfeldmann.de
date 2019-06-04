@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Thomas Feldmann | tfeldmann.de</title>
@@ -40,7 +39,7 @@
 </head>
 
 <body>
-  <pre>
+<pre>
 <div style="border-bottom:1px solid black;"><b>Thomas Feldmann</b> <<a href="mailto:mail@tfeldmann.de">mail@tfeldmann.de</a>></div>
 Entwicklungsingenieur (M.Eng.)
 
@@ -59,12 +58,12 @@ Open-Source:
   <a href="https://github.com/tfeldmann/Biorobotic-Arm" target="_blank">Biorobotic-Arm</a> <span class="gh-stars" data-repo="tfeldmann/Biorobotic-Arm" hidden></span>
   <i>An Arduino controlled robotic arm with facetracking capabilities</i>
 -->
-  </pre>
+</pre>
   <script>
     function show_github_stars() {
       var stardivs = document.getElementsByClassName("gh-stars");
       for (var i = 0; i < stardivs.length; i++) {
-        let x = stardivs.item(i);
+        var x = stardivs.item(i);
         fetch('https://api.github.com/repos/' + x.dataset.repo)
           .then((resp) => resp.json())  // transform to json
           .then(function (data) {
