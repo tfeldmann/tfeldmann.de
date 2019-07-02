@@ -96,7 +96,6 @@ Open-Source:
             return response.json() // transform to json
           })
           .then(function (data) {
-            console.log(data);
             x.innerHTML = '(' + data.stargazers_count + ' ☆)';
             x.style.display = 'inline';
           })
