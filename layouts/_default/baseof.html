@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>
+    {{- block "title" . }}{{ .Params.Title }} | {{ .Site.Title }}{{ end -}}
+  </title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  {{- $style := resources.Get "main.sass" | toCSS }}
+  <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}" />
+  {{ hugo.Generator }}
+</head>
+<body>
+  {{- block "main" . }}{{ end -}}
+</body>
+</html>

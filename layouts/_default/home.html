@@ -1,66 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Thomas Feldmann | tfeldmann.de</title>
-  <meta name="Description" content="Private Open-Source Projekte von Thomas Feldmann">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ce2029">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <style type="text/css">
-    a:link {
-      color: #CE2029;
-      text-decoration: none;
-    }
-
-    a:visited {
-      color: #CE2029;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    pre {
-      padding-top: 20px;
-      font: 11.0px;
-      width: 585px;
-      position: relative;
-      margin: 0 auto;
-      white-space: -moz-pre-wrap;
-      /* Mozilla, supported since 1999 */
-      white-space: -pre-wrap;
-      /* Opera */
-      white-space: -o-pre-wrap;
-      /* Opera */
-      white-space: pre-wrap;
-      /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
-      word-wrap: break-word;
-      /* IE 5.5+ */
-    }
-
-    .headline {
-      border-bottom: 1px solid black;
-    }
-  </style>
-</head>
-
-<body>
-  <center><img src="tf.svg" width="128" alt="tf"></center>
+{{ define "main" }}
+<center><img src="tf.svg" width="128" alt="tf"></center>
   <pre>
 <div class="headline"><b>Thomas Feldmann</b> <<a href="mailto:mail@tfeldmann.de">mail@tfeldmann.de</a>></div>
 Entwicklungsingenieur (M.Eng. Mechatronik) aus Bocholt.
 
 
 Open-Source:
-
   <a href="https://github.com/tfeldmann/organize" target="_blank" rel="noreferrer">organize</a> <span class="gh-stars" data-repo="tfeldmann/organize" hidden></span>
   <i>The file management automation tool</i>
   Bringt Ordnung in das Datei-Chaos. Überwacht Ordner und führt selbst
@@ -109,6 +54,4 @@ Open-Source:
 
     show_github_stars("gh-stars");
   </script>
-</body>
-
-</html>
+  {{ end }}
