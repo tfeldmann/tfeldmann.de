@@ -1,0 +1,112 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tonaljs/tonal/browser/tonal.min.js"></script>
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+
+    <style>
+        .settings {
+            margin-bottom: 20px;
+            background-color: silver;
+        }
+    </style>
+<body>
+
+<h1>Fretboard Tool</h1>
+
+<div id="app">
+
+    <div class="settings">
+        Tuning:
+        <input type="text" v-model:value="tuning">
+
+        Frets:
+        <input v-model.number="frets" type="number" size=4 min="1" max="200">
+
+        Notation:
+        <input type="radio" id="sharps" value="#" v-model="sharps" v-bind:value="true">
+        <label for="sharps">#</label>
+        <input type="radio" id="flats" value="b" v-model="sharps" v-bind:value="false">
+        <label for="flats">b</label>
+    </div>
+
+    <br>
+    Scale: <input type="text" v-model="scale.tonic" size=5><v-select :options="all_scales" v-model="scale.type"></v-select>
+
+    <br>
+    <svg width="800" height="300">
+        <line x1=80 y1=40 x2=80 :y2="40 + display.length * string_spacing" stroke-width=5 stroke="#000" />
+        <template v-for="(notes, index) in display">
+            <svg class="string" x="50" :y="50 + index * string_spacing" overflow="auto">
+                <line x1="0" y1="0" :x2="notes.length * fret_spacing" y2="0" stroke="#000" stroke-width="1" />
+                <template v-for="(note, index) in notes">
+                    <circle v-if="note" :cx="fret_spacing * index" cy="0" r="10" stroke="silver" stroke-width="1" fill="white" />
+                    <text font-size="11" :x="fret_spacing*index" y="0" alignment-baseline="middle" text-anchor="middle">{{ note }}</text>
+                </template>
+            </svg>
+        </template>
+    </svg>
+    <br>
+    <input type="button" value="add">
+
+    <pre>
+    {{ strings }}
+    {{ scale_notes }}
+    {{ display }}
+    </pre>
+</div>
+
+<script>
+    // https://github.com/tonaljs/tonal
+    Vue.component('v-select', VueSelect.VueSelect);
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+          tuning: "E A D G B E",
+          scale: { tonic: "C", type: "chromatic" },
+          frets: 20,
+          string_spacing: 30,
+          fret_spacing: 40,
+          sharps: true,
+          all_scales: Tonal.Scale.names(),
+        },
+        computed: {
+            scale_notes() {
+                let name = this.scale.tonic + " " + this.scale.type;
+                return Tonal.Scale.get(name).notes.map(Tonal.Note.chroma);
+            },
+            strings() {
+                return this.tuning.trim().split(" ").reverse().map(Tonal.Note.chroma);
+            },
+            display() {
+                let result = [];
+                var scale = this.scale_notes;
+                for (var base of this.strings)
+                {
+                    var chromatic = Tonal.Range.numeric([base, base + this.frets]);
+                    var tmp = new Array();
+                    for(var c of chromatic) {
+                        if (scale.includes(c % 12)) {
+                            tmp.push(this.toname(c));
+                        }
+                        else {
+                            tmp.push(null);
+                        }
+                    }
+                    result.push(tmp);
+                }
+                return result;
+            },
+        },
+        methods: {
+            toname(x) {
+                return Tonal.Midi.midiToNoteName(x, { sharps: this.sharps, pitchClass: true });
+            },
+            simplify(x) { return Tonal.Note.get(Tonal.Note.simplify(x)).pc }
+        },
+      })
+</script>
+
+</body>
+</html>
