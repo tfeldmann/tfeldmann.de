@@ -9,6 +9,13 @@
             margin-bottom: 20px;
             background-color: silver;
         }
+
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
     </style>
 <body>
 
@@ -36,10 +43,12 @@
                 <line x1="0" y1="0" :x2="fretpos(notes.length - 1)" y2="0" stroke="#000" stroke-width="1" />
                 <template v-for="(note, i_frt) in notes">
                     <line v-if="i_str == 0" :x1="fretpos(i_frt)" y1=0 :x2="fretpos(i_frt)" :y2="(display.length - 1) * string_spacing" stroke-width=1 stroke="#000" />
-                    <svg :x="(fretpos(i_frt - 1) + fretpos(i_frt)) / 2" y=0 overflow=auto>
-                        <circle v-if="note" cx="0" cy="0" r="10" stroke="silver" stroke-width="1" fill="white" />
-                        <text font-size="11" x="0" y="0" alignment-baseline="middle" text-anchor="middle">{{ note }}</text>
+                    <transition name="fade">
+                    <svg v-if="note" :x="(fretpos(i_frt - 1) + fretpos(i_frt)) / 2" y=0 overflow=auto>
+                        <circle  cx="0" cy="0" r="10" stroke-width="1" fill="white" stroke="black" />
+                        <text font-size="11" x="0" y="0" alignment-baseline="middle" fill="black" text-anchor="middle">{{ note }}</text>
                     </svg>
+                    </transition>
                 </template>
             </svg>
         </template>
