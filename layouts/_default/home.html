@@ -1,6 +1,6 @@
 {{ define "main" }}
-<center><img src="tf.svg" width="128" alt="tf"></center>
-  <pre>
+<center><img src="tf.svg" width="128" alt="tf" /></center>
+<pre>
 <div class="headline"><b>Thomas Feldmann</b> <<a href="mailto:mail@tfeldmann.de">mail@tfeldmann.de</a>></div>
 Entwicklungsingenieur (M.Eng. Mechatronik) aus Bocholt.
 
@@ -31,27 +31,26 @@ Open-Source:
   und automatisch Gesichtern folgen.
   (Arduino, Python, Qt, OpenCV)
 </pre>
-  <script>
-    function show_github_stars(cls) {
-      var stardivs = document.getElementsByClassName(cls);
-      for (var i = 0; i < stardivs.length; i++) {
-        let x = stardivs.item(i);
-        fetch('https://api.github.com/repos/' + x.dataset.repo)
-          .then(function (response) {
-            if (!response.ok)
-              throw Error(response.statusText);
-            return response.json() // transform to json
-          })
-          .then(function (data) {
-            x.innerHTML = '(' + data.stargazers_count + ' ☆)';
-            x.style.display = 'inline';
-          })
-          .catch(function (ex) {
-            console.log('github star loading failed', ex);
-          })
-      }
+<script>
+  function show_github_stars(cls) {
+    var stardivs = document.getElementsByClassName(cls);
+    for (var i = 0; i < stardivs.length; i++) {
+      let x = stardivs.item(i);
+      fetch("https://api.github.com/repos/" + x.dataset.repo)
+        .then(function (response) {
+          if (!response.ok) throw Error(response.statusText);
+          return response.json(); // transform to json
+        })
+        .then(function (data) {
+          x.innerHTML = "(" + data.stargazers_count + " ☆)";
+          x.style.display = "inline";
+        })
+        .catch(function (ex) {
+          console.log("github star loading failed", ex);
+        });
     }
+  }
 
-    show_github_stars("gh-stars");
-  </script>
-  {{ end }}
+  show_github_stars("gh-stars");
+</script>
+{{ end }}
