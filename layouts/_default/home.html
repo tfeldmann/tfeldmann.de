@@ -34,8 +34,7 @@ Open-Source:
 <script>
   function show_github_stars(cls) {
     var stardivs = document.getElementsByClassName(cls);
-    for (var i = 0; i < stardivs.length; i++) {
-      let x = stardivs.item(i);
+    for (let x of stardivs) {
       fetch("https://api.github.com/repos/" + x.dataset.repo)
         .then(function (response) {
           if (!response.ok) throw Error(response.statusText);
