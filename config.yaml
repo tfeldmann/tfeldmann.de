@@ -1,9 +1,0 @@
-baseURL: "https://tfeldmann.de/"
-languageCode: "de"
-title: "tfeldmann.de"
-disableKinds: ["taxonomy", "taxonomyTerm"]
-enableRobotsTXT: true
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
