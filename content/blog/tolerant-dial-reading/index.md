@@ -1,4 +1,7 @@
 ---
+# https://www.reddit.com/r/arduino/comments/694syx/how_do_i_add_a_deadzone_to_potentiometers_or/
+# https://www.reddit.com/r/arduino/comments/3m12jx/adjusting_the_center_or_a_potentiometer_or/
+# https://forum.arduino.cc/index.php?topic=692305.0
 title: "How to handle dials with arbitrary center positions"
 date: 2020-11-28T20:07:41+01:00
 slug: ""
@@ -9,6 +12,7 @@ tags: []
 math: false
 toc: false
 ---
+
 
 I received this nice remote control to control some machinery.
 It features a dial to set a rotation speed.
