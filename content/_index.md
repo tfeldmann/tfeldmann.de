@@ -1,6 +1,6 @@
 ---
 title: "tfeldmann.de"
-heading: "Welcome to my Site"
+heading: "tfeldmann.de"
 subheading: "Projects made with coffee and computers."
-handle: Thomas Feldmann (M. Eng. Mechatronics from Germany)
+person: Thomas Feldmann (M. Eng. of Mechatronics from Germany)
 ---

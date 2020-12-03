@@ -1,16 +1,11 @@
-{{ define "styles" }}
-    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/about.scss" "dest" "css/about.css") }}
-{{ end }}
-
 {{ define "main" }}
 
 <div class="splash-container">
   <div class="splash">
-    <img src="coffee.svg" height="250"/>
-
-    <h1>{{ .Params.heading }}<span class="fancy">.</span></h1>
-    {{ if isset .Params "handle" }}
-    <span class="handle">@{{ .Params.handle }}</span>
+    <img src="/coffee.svg">
+    <h1>{{ replace .Params.heading "." "<span class=\"fancy\">.</span>" | safeHTML }}</h1>
+    {{ if isset .Params "person" }}
+    <span class="handle">{{ .Params.person }}</span>
     {{ end }}
     <h2>
       {{ .Params.subheading }}

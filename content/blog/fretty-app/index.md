@@ -1,5 +1,5 @@
 ---
-title: "Announcing fretty.app"
+title: "Announcing an interactive fretboard exploration tool (fretty.app)"
 date: 2020-11-27T16:22:18+01:00
 slug: ""
 description: "musical scales for guitar, bass, ukulele or any other stringed instrument"
@@ -18,7 +18,7 @@ I received a lot of music lessons but for some reason music theory never really 
 So this month I started learning music theory by myself. And surprise - a lot of the things
 my teachers explained back then suddenly make sense. But I feel as an easily confused programmer I need to get to the root of complex systems to understand them.
 
-> *For me, a good way to learn complex topics has always been to express the problem as code.*
+> _For me, a good way to learn complex topics has always been to express the problem as code._
 
 Even better: Make it interactive. Then you learn it while playing with it.
 
