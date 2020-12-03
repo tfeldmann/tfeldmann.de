@@ -24,6 +24,7 @@ copyright = "© {year} Thomas Feldmann"
   # twitter = "https://twitter.com/<your handle>"
   github = "https://github.com/tfeldmann"
   email = "mailto:mail@tfeldmann.de"
+  gift = "https://paypal.me/tfeldmann42"
   # facebook = "https://facebook.com/<your handle>"
   # gitlab = "https://gitlab.com/<your handle>"
   # instagram = "https://instagram.com/<your handle>"
@@ -33,7 +34,7 @@ copyright = "© {year} Thomas Feldmann"
   # Titles for your icons (shown as tooltips), and also their display order.
   # Currently, these icons are supported:
   #   "Twitter", "GitHub", "Email", "Facebook", "GitLab", "Instagram", "LinkedIn", "YouTube"
-  iconOrder = ["Email", "GitHub"]
+  iconOrder = ["Email", "GitHub", "Gift"]
 
   # Metadata for Twitter cards, defaults to params.twitter
   # twitterSite = "@<your handle>"
