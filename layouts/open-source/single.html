@@ -1,38 +1,23 @@
 {{ define "styles" }}
-    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/post.scss" "dest" "css/post.css") }}
+  {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/posts.scss" "dest" "css/posts.css") }}
 {{ end }}
 
 {{ define "main" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2 2006" }}
+
 <div class="post-list__container">
-  <ul class="post-list">
+    <ul class="post-list">
     {{ range .Params.projects }}
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="{{ . }}"
-          >{{ .Date.Format $dateFormat }}</time>
-        <h2 class="post__title">
-          <a href="{{.}}">{{ .Title }}</a>
-        </h2>
-      </div>
-    </li>
-    {{ end }}
-  </ul>
-</div>
-
-<div class="post-list__container">
-<ul class="post-list">
-    {{range .Params.projects }}
-    <li class="post">
-        <div class="post__header">
-            <time class="post__date" datetime="{{ .Date }}">Zeit</time>
-            <h2 class="post__title">
-                <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
-            </h2>
-            <span class="gh-stars" data-repo="{{ .repo }}" hidden></span>
-            <p><i>{{ .intro }}</i></p>
-            <p>{{ .description }}</p>
-
+        <li class="post">
+            <div class="post__header">
+                <img src="{{ .logo }} ">
+                <time class="post__date" datetime="{{ .Date }}">{{ .year }}</time>
+                <h2 class="post__title">
+                    <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
+                </h2>
+                <span class="gh-stars" data-repo="{{ .repo }}" hidden></span>
+                <p><i>{{ .intro }}</i></p>
+                <p>{{ .description }}</p>
+            </div>
             <ul class="tags__list">
                 {{ range .technologies }}
                 <li class="tag__item">
@@ -40,15 +25,12 @@
                 </li>
                 {{- end -}}
             </ul>
-
-        </div>
-    </li>
-    {{- end -}}
+          </li>
+          {{- end -}}
+    </ul>
 </div>
 
-
-
-{{ end }}
+{{- end }}
 
 {{ define "scripts" }}
 

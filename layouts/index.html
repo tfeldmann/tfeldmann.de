@@ -2,7 +2,7 @@
 
 <div class="splash-container">
   <div class="splash">
-    <img src="/coffee.svg">
+    <!-- <img src="/coffee.svg"> -->
     <h1>{{ replace .Params.heading "." "<span class=\"fancy\">.</span>" | safeHTML }}</h1>
     {{ if isset .Params "person" }}
     <span class="handle">{{ .Params.person }}</span>
