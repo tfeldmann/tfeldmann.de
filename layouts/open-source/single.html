@@ -5,29 +5,31 @@
 {{ define "main" }}
 
 <div class="post-list__container">
-    <ul class="post-list">
-    {{ range .Params.projects }}
-        <li class="post">
-            <div class="post__header">
-                <img src="{{ .logo }} ">
-                <time class="post__date" datetime="{{ .Date }}">{{ .year }}</time>
-                <h2 class="post__title">
-                    <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
-                </h2>
-                <span class="gh-stars" data-repo="{{ .repo }}" hidden></span>
-                <p><i>{{ .intro }}</i></p>
-                <p>{{ .description }}</p>
-            </div>
-            <ul class="tags__list">
-                {{ range .technologies }}
-                <li class="tag__item">
-                    <a class="tag__link">{{ . }}</a>
-                </li>
-                {{- end -}}
-            </ul>
-          </li>
-          {{- end -}}
+  <ul class="post-list">
+  {{- range .Params.projects -}}
+  <li class="post">
+    <div class="post__header">
+      {{- with .logo -}}
+      <img src="logos/{{ . }} ">
+      {{ end }}
+      <time class="post__date" datetime="{{ .Date }}">{{ .year }}</time>
+      <h2 class="post__title">
+          <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
+      </h2>
+      <span class="gh-stars" data-repo="{{ .repo }}" hidden></span>
+      <p><i>{{ .intro }}</i></p>
+      <p>{{ .description }}</p>
+    </div>
+    <ul class="tags__list">
+        {{- range .tags -}}
+        <li class="tag__item">
+            <a class="tag__link">{{ . }}</a>
+        </li>
+        {{- end -}}
     </ul>
+  </li>
+  {{- end -}}
+  </ul>
 </div>
 
 {{- end }}

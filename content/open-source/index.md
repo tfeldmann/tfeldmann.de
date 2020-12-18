@@ -10,7 +10,7 @@ projects:
     intro: The file management automation tool
     year: 2015 - now
     description: Bringt Ordnung in das Datei-Chaos. Überwacht Ordner und führt selbst definierte Regeln aus.
-    technologies:
+    tags:
       - Python
 
   - name: Sudoku-CV
@@ -18,7 +18,7 @@ projects:
     logo: ""
     intro: Use your webcam to detect and solve any 9x9 sudoku
     description: Erkennt Sudokus über die Webcam und zeigt deren Lösung an.
-    technologies:
+    tags:
       - Python
       - OpenCV
       - Tesseract
@@ -28,7 +28,7 @@ projects:
     logo: ""
     intro: A pythonic library for discovering and controlling Teufel Raumfeld devices.
     description: Eine Python-Library zur Steuerung vernetzter Teufel Raumfeld Lautsprecher.
-    technologies: 
+    tags: 
       - Python
       - DLNA/UPnP
       - SOAP
@@ -39,7 +39,7 @@ projects:
     logo: ""
     intro: An Arduino controlled robotic arm with facetracking capabilities
     description: "Studienprojekt: Ein gesteuerter Roboterarm aus günstigen Komponenten. Kann per Smartphone oder aus einer Qt-Software heraus gesteuert werden und automatisch Gesichtern folgen."
-    technologies: 
+    tags: 
       - Arduino
       - Python,
       - Qt

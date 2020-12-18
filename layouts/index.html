@@ -8,7 +8,7 @@
     <span class="handle">{{ .Params.person }}</span>
     {{ end }}
     <h2>
-      {{ .Params.subheading }}
+      {{ .Params.subheading | safeHTML }}
     </h2>
     {{ partial "social-icons.html" .}}
   </div>
