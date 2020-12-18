@@ -6,7 +6,7 @@ projects:
   - name: organize
     logo: organize.svg
     link: https://github.com/tfeldmann/organize
-    repo: tfeldmann/sudoku
+    repo: tfeldmann/organize
     intro: The file management automation tool
     year: 2015 - now
     description: Bringt Ordnung in das Datei-Chaos. Überwacht Ordner und führt selbst definierte Regeln aus.
@@ -15,7 +15,9 @@ projects:
 
   - name: Sudoku-CV
     link: https://github.com/tfeldmann/sudoku
-    logo: ""
+    repo: tfeldmann/sudoku
+    logo: "sudoku.png"
+    year: "2013 - 2014"
     intro: Use your webcam to detect and solve any 9x9 sudoku
     description: Erkennt Sudokus über die Webcam und zeigt deren Lösung an.
     tags:
@@ -25,7 +27,9 @@ projects:
 
   - name: python-raumfeld
     link: https://github.com/tfeldmann/python-raumfeld
+    repo: tfeldmann/python-raumfeld
     logo: ""
+    year: "2014"
     intro: A pythonic library for discovering and controlling Teufel Raumfeld devices.
     description: Eine Python-Library zur Steuerung vernetzter Teufel Raumfeld Lautsprecher.
     tags: 
@@ -36,7 +40,9 @@ projects:
 
   - name: Biorobotic-Arm
     link: https://github.com/tfeldmann/Biorobotic-Arm
-    logo: ""
+    repo: tfeldmann/Biorobotic-Arm
+    logo: "biorob.png"
+    year: "2012 - 2013"
     intro: An Arduino controlled robotic arm with facetracking capabilities
     description: "Studienprojekt: Ein gesteuerter Roboterarm aus günstigen Komponenten. Kann per Smartphone oder aus einer Qt-Software heraus gesteuert werden und automatisch Gesichtern folgen."
     tags: 

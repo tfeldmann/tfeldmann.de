@@ -2,9 +2,9 @@
 # https://www.reddit.com/r/arduino/comments/694syx/how_do_i_add_a_deadzone_to_potentiometers_or/
 # 
 # https://forum.arduino.cc/index.php?topic=692305.0
-title: "How to add software deadzones to potentiometers"
+title: "How to add deadzones to potentiometers"
 date: 2020-11-28T20:07:41+01:00
-slug: "how-to-add-software-deadzones-to-potentiometers"
+slug: "how-to-add-deadzones-to-potentiometers"
 description: ""
 keywords: []
 draft: true

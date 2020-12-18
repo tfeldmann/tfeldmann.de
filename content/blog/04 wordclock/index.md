@@ -11,7 +11,7 @@ toc: true
 ---
 
 At my company we built some nice wordclocks as christmas presents for our families.
-This is some kind of a build log where we document what we learned for anyone interested.
+This article is some kind of a build log where we document what we learned for anyone interested.
 
 ## Pictures
 
