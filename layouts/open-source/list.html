@@ -1,0 +1,66 @@
+{{ define "styles" }}
+  {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/post.scss" "dest" "css/post.css") }}
+{{ end }}
+
+{{ define "main" }}
+
+<div class="post-list__container opensource">
+  <ul class="post-list">
+
+    <div class="post">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </div>
+
+    {{- range .Params.projects -}}
+    <div class="post">
+      <div class="post__header">
+        {{- if .logo -}}
+        <a href="{{ .link }}" target="_blank" rel="noreferrer"><img src="logos/{{ .logo }} "></a>
+        {{ end }}
+        <h2 class="post__title">
+          <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
+          <span class="gh-stars" data-repo="{{ .repo }}" hidden></span>
+        </h2>
+        <time class="post__date" datetime="{{ .Date }}">{{ .year }}</time>
+        <p><i>{{ .intro }}</i></p>
+        <p>{{ .description }}</p>
+      </div>
+      <ul class="tags__list">
+          {{- range .tags -}}
+          <li class="tag__item">
+            <a class="tag__link">{{ . }}</a>
+          </li>
+          {{- end -}}
+      </ul>
+    </div>
+    {{- end -}}
+  </ul>
+</div>
+
+{{- end }}
+
+{{ define "scripts" }}
+
+<script>
+  function show_github_stars(cls) {
+    var stardivs = document.getElementsByClassName(cls);
+    for (let x of stardivs) {
+      fetch("https://api.github.com/repos/" + x.dataset.repo)
+        .then(function (response) {
+          if (!response.ok) throw Error(response.statusText);
+          return response.json(); // transform to json
+        })
+        .then(function (data) {
+          x.innerHTML = "(" + data.stargazers_count + " ☆)";
+          x.style.display = "inline";
+        })
+        .catch(function (ex) {
+          console.log("github star loading failed", ex);
+        });
+    }
+  }
+  show_github_stars("gh-stars");
+</script>
+
+{{ end }}

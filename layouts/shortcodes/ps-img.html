@@ -1,0 +1,9 @@
+{{- $src := .Get "src" -}}
+{{- range .Page.Resources.Match $src }}
+  {{- $thumbnail := .Fill "200x200 Smart" -}}
+  <figure width="{{ .Width }}" height="{{ .Height }}">
+    <a href="{{ .RelPermalink }}" itemprop="contentUrl" data-size="{{ .Width }}x{{ .Height }}">
+        <img src="{{ $thumbnail.RelPermalink }}" itemprop="thumbnail" />
+    </a>
+  </figure>
+{{ end -}}

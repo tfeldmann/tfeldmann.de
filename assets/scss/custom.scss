@@ -1,0 +1,32 @@
+.splash {
+  img {
+    margin-bottom: 50px;
+    height: 250px;
+  }
+  h2 {
+    font-size: 1.25em;
+    font-weight: 500;
+    line-height: 1.25;
+    max-width: 22em;
+    letter-spacing: -0.03em;
+  }
+}
+
+.opensource {
+  .post {
+    margin-bottom: 5em;
+
+    .post__header {
+      img {
+        max-height: 200px;
+        width: auto;
+      }
+    }
+    .post__title {
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ---
-title: "Thomas Feldmann"
-date: 2020-02-27T12:11:52+01:00
-draft: false
+title: "tfeldmann.de"
+heading: "tfeldmann.de"
+subheading: " - made with coffee and computers - "
+person: Thomas Feldmann (M. Eng. of Mechatronics from Germany)
 ---
-
