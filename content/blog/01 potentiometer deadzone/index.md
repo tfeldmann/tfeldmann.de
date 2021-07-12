@@ -24,9 +24,15 @@ toc: true
 ## The problem
 
 I received this nice remote control to control some machinery.
-It features a dial with a center position at the top (value `0`) which be turned either left (value `-100 %`) or right (value `+100 %`).
+It features a dial with a center position at the top (output should be `0`) which be
+turned either left (output should be `-100 %`) or right (value `+100 %`).
 
-There are some recurring problem with potentiometers used like this:
+This post shows how to implement dials like this for a microcontroller in a robust way.
+
+There are some recurring problem with reading potentiometers like this.
+
+What you want is a nice center position at the top (value `0`) with a little bit of
+tolerance around the center so the reading may flicker and the output still is zero.
 
 **What you want:**
 
